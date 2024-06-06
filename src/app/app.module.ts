@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { AsideComponent } from './components/layout/aside/aside.component';
 import { Page404Component } from './public/pages/page-404/page-404.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { Page404Component } from './public/pages/page-404/page-404.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(
+      withFetch()
+    )
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
