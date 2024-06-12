@@ -5,11 +5,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductsService {
+  baseUrl = 'http://localhost:3000/api';
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
   getProducts() {
 
-    return this.http.get<any>( 'http://localhost:3000/api/products' );
+    return this.http.get<any>( `${ this.baseUrl }/products` );
   }
+
+  insertProduct( newProduct: any ) {
+
+    return this.http.post<any>( `${ this.baseUrl }/products`, newProduct );
+  }
+
 }

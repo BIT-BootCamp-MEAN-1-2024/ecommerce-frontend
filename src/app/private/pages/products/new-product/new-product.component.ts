@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriesService } from '../../../services/categories.service';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-new-product',
@@ -20,7 +21,8 @@ export class NewProductComponent {
   
   constructor( 
     private formBuilder: FormBuilder,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private productsService: ProductsService
   ) {}
 
   /** Este Ciclo vida ejecuta acciones cuando el componente se esta inicializando */
@@ -35,7 +37,9 @@ export class NewProductComponent {
   onSumbit() {
     if( this.productForm.valid ) {
       console.log( this.productForm.value );
-
+      this.productsService.insertProduct( this.productForm.value ).subscribe( data => {
+        console.log( data );
+      });
     }
   }
 }
