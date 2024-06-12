@@ -36,7 +36,7 @@
     <div class="field">
         <label for="">Categoria del Producto</label>
         <select class="select" formControlName="category">
-            <option value="hola">hola</option>
+            <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
         </select>
     </div>
     <div class="field">
