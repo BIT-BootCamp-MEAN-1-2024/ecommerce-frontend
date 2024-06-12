@@ -13,6 +13,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { AsideComponent } from './components/layout/aside/aside.component';
 import { Page404Component } from './public/pages/page-404/page-404.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { NewProductComponent } from './private/pages/products/new-product/new-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     AsideComponent,
-    Page404Component
+    Page404Component,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(
