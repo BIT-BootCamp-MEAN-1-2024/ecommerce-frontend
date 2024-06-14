@@ -1,1 +1,30 @@
-<p>products works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">1</th>
+            <td>
+                <img class="product-thumbnail" [src]="product.urlImage" [alt]="product.name">
+            </td>
+            <td>{{ product.name }}</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>
+                <a href="" class="btn btn-primary">Edit</a>
+                <a href="" class="btn btn-outline-primary">Delete</a>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+
+
