@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Edit Product</h1>
+<form 
+    [formGroup]="productForm" 
+    (ngSubmit)="onSumbit()"
+    class="form form-product"
+>
+    <div class="field">
+        <label for="">Nombre Producto</label>
+        <input type="text" class="form-control" formControlName="name">
+        <div class="error">
+            <!-- Validar los estados del campo -->
+            <div *ngIf="productForm.get( 'name' )?.invalid && ( productForm.get( 'name' )?.dirty || productForm.get( 'name' )?.touched )  ">
+                <!-- Validar las reglas que definimos para el campo -->
+                <small *ngIf="productForm.get( 'name' )?.errors?.['required']">El nombre del producto es requerido</small>
+                <small *ngIf="productForm.get( 'name' )?.errors?.['minlength']">La longitud minima es de 5 caracteres</small>
+            </div>
+            
+        </div>
+    </div>
+    <div class="field">
+        <label for="">Precio Producto</label>
+        <input type="number" class="form-control" formControlName="price">
+    </div>
+    <div class="field">
+        <label for="">Cantidad</label>
+        <input type="number" class="form-control" formControlName="quantity">
+    </div>
+    <div class="field">
+        <label for="">URL Imagen del producto</label>
+        <input type="text" class="form-control" formControlName="urlImage">
+    </div>
+    <div class="field">
+        <label for="">Descripcion Producto</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="field">
+        <label for="">Categoria del Producto</label>
+        <select class="select" formControlName="category">
+            <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+        </select>
+    </div>
+    <div class="field">
+        <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid">Registrar</button>
+        <button type="btn btn-outline-primary">Cancelar</button>
+    </div>
+</form>
+</div>
